@@ -1,0 +1,1 @@
+/usr/bin/c++ -rdynamic CMakeFiles/GestionareTerenuri.dir/src/main.cpp.o CMakeFiles/GestionareTerenuri.dir/src/Field.cpp.o CMakeFiles/GestionareTerenuri.dir/src/Reservation.cpp.o -o GestionareTerenuri 
