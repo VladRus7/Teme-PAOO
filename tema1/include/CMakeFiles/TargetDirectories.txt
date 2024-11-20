@@ -1,3 +1,0 @@
-/home/vlad/tema/Teme-PAOO/tema1/include/CMakeFiles/GestionareTerenuri.dir
-/home/vlad/tema/Teme-PAOO/tema1/include/CMakeFiles/edit_cache.dir
-/home/vlad/tema/Teme-PAOO/tema1/include/CMakeFiles/rebuild_cache.dir
