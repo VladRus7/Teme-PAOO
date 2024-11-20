@@ -45,6 +45,8 @@ int main(){
     Reservation res1(field1, 2);
     Reservation res2(field1, 3);
     
+Hatz
+
     res2 = res1;  // Testează operatorul de atribuire
 
     std::cout << "Rezervarea 2 cost: " << res2.calculateTotalCost() << " lei\n";*/
