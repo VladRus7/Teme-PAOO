@@ -5,6 +5,7 @@
 
 int main(){
 	
+	/*TEMA1
 	//vector pentru terenuri
 	std::vector<Field>fields = {
 		Field("Teren 1", "fotbal", 50.0),
@@ -22,7 +23,8 @@ int main(){
 		Reservation(fields[3], 3) 
 	};
 	
-	reservations[3] = reservations[2];
+	
+	
 	
 	for (int i = 0; i < fields.size(); i++) {
 		
@@ -45,11 +47,35 @@ int main(){
     Reservation res1(field1, 2);
     Reservation res2(field1, 3);
     
-Hatz
-
     res2 = res1;  // Testează operatorul de atribuire
 
     std::cout << "Rezervarea 2 cost: " << res2.calculateTotalCost() << " lei\n";*/
+
+	 // Creăm obiecte Field
+    Field field1("Teren 1", "fotbal", 50.0);
+    Field field2("Teren 2", "fotbal", 100.0);
+
+    // Creăm obiecte Reservation
+    
+    Reservation reservation1(field1, 2);
+
+    
+    Reservation reservation2(field2, 3);
+
+    // Calculăm costurile rezervărilor
+    std::cout << "Cost total pentru rezervarea 1: " << reservation1.calculateTotalCost() << " lei\n";
+    std::cout << "Cost total pentru rezervarea 2: " << reservation2.calculateTotalCost() << " lei\n";
+
+   
+reservation2.~Reservation();
+
+// Cream o nouă rezervare pe baza obiectului existent
+new (&reservation2) Reservation(field1, reservation1.calculateTotalCost() / field1.getPricePerHour());
+
+
+    std::cout << "Cost total pentru rezervarea 2 după atribuire: " << reservation2.calculateTotalCost() << " lei\n";
+
+    // Obiectele se distrug automat la ieșirea din scope
 	
 	return 0;
 }
