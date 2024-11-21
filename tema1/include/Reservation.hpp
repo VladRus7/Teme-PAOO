@@ -13,9 +13,9 @@ public:
 	~Reservation();//deconstructor pentru eliberarea memoriei	
 	double calculateTotalCost() const; // calculeaza costul total al unei rezervari
 
-	Reservation(const Reservation& other) = delete;
-	Reservation(Reservation&&) = delete;
-	Reservation& operator=(const Reservation& other) = delete;
+	Reservation(const Reservation& other) ; // copy constructor
+	Reservation(Reservation&&) noexcept; // move constructor
+	Reservation& operator=(const Reservation& other) = delete; // oprim call-ul
 	Reservation& operator=(Reservation&& other) = delete;
 
 	

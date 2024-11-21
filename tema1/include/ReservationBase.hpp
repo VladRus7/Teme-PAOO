@@ -12,7 +12,7 @@ public:
     // Constructorul clasei de bază
     ReservationBase(const std::string& name, const std::string& type, double pricePerHour)
         : name(name), type(type), pricePerHour(pricePerHour) {
-        std::cout << "Obiectul ReservationBase a fost creat." << std::endl;
+        std::cout << "Obiectul ReservationBase a fost creat pentru "<< name  << std::endl;
     }
 
     // Destructorul clasei de bază

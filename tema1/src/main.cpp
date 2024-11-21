@@ -2,6 +2,7 @@
 #include "Reservation.hpp"
 #include <iostream>
 #include <vector>
+#include <utility>
 
 int main(){
 	
@@ -53,12 +54,14 @@ int main(){
 
 	 // Creăm obiecte Field
     Field field1("Teren 1", "fotbal", 50.0);
+
+
     Field field2("Teren 2", "fotbal", 100.0);
 
     // Creăm obiecte Reservation
     
     Reservation reservation1(field1, 2);
-
+	
     
     Reservation reservation2(field2, 3);
 
@@ -67,15 +70,19 @@ int main(){
     std::cout << "Cost total pentru rezervarea 2: " << reservation2.calculateTotalCost() << " lei\n";
 
    
-reservation2.~Reservation();
+	std::cout << " TESTARE COPY SI MOVE CONSTRUCTORS" << std::endl;
 
-// Cream o nouă rezervare pe baza obiectului existent
-new (&reservation2) Reservation(field1, reservation1.calculateTotalCost() / field1.getPricePerHour());
+	Field field3("Teren 3", "fotbal", 20.0);
+    
+    // Testare Copy Constructor
+    Reservation reservation3(field3, 2);
+	std::cout <<" Rezervarea 3 cu costul total: " << reservation3.calculateTotalCost() << "lei" << std::endl;
+    Reservation reservation4 = reservation2; // Copy constructor
+	std::cout << "Rezervarea 4 dupa copiere cu costul total " << reservation4.calculateTotalCost() << "lei" << std::endl;
 
-
-    std::cout << "Cost total pentru rezervarea 2 după atribuire: " << reservation2.calculateTotalCost() << " lei\n";
-
-    // Obiectele se distrug automat la ieșirea din scope
+    // Testare Move Constructor
+    Reservation reservation5 = std::move(reservation3); // Move constructor
+	std::cout << "Rezervarea 5 dupa move cu costul total " << reservation5.calculateTotalCost() << "lei" << std::endl;
 	
 	return 0;
 }
