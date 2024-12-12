@@ -2,33 +2,37 @@
 #include <iostream>
 
 
-//constructorul pentru rezervare
-Reservation::Reservation(const Field& field, int hours) : ReservationBase(field.getName(), field.getType(), field.getPricePerHour()), field(new Field(field)), hours(hours)  {
-	
-    std::cout << "Obiectul Reservation derivat a fost creat pentru " << field.getName() << std::endl;
-	
+Reservation::Reservation(std::shared_ptr<Field> field, int hours, std::unique_ptr<std::string> description)
+    : ReservationBase(field->getName(), field->getType(), field->getPricePerHour()), field(field), hours(hours), description(std::move(description)){
+    std::lock_guard<std::mutex> lock(mtx); // Protejam resursele partajate
+    std::cout << "Mutex lock acquired in Reservation constructor.\n";
+    std::cout << "Obiectul Reservation derivat a fost creat pentru " << field->getName() << " cu descrierea: " << *this->description << std::endl;
 }
 
 Reservation::~Reservation() {
-	delete field; // eliberam memoria alocata pentru obiectul Field
-	std::cout << "Destructorul Reservation a fost apelat" << std::endl;
+    std::lock_guard<std::mutex> lock(mtx);
+    std::cout << "Mutex lock acquired in Reservation destructor.\n";
+    std::cout << "Destructorul Reservation a fost apelat." << std::endl;
 }
 
-// Copy constructor
 Reservation::Reservation(const Reservation& other)
-    : ReservationBase(other), field(new Field(*other.field)), hours(other.hours) {
+    : ReservationBase(other), field(other.field), hours(other.hours) {
+    std::lock_guard<std::mutex> lock(mtx);
+    std::cout << "Mutex lock acquired in Reservation copy constructor.\n";
     std::cout << "Copy constructor a fost apelat." << std::endl;
 }
 
-// Move constructor
 Reservation::Reservation(Reservation&& other) noexcept
-    : ReservationBase(std::move(other)), field(other.field), hours(other.hours) {
-    other.field = nullptr; // Transferăm proprietatea asupra resursei
+    : ReservationBase(std::move(other)), field(std::move(other.field)), hours(other.hours) {
+    std::lock_guard<std::mutex> lock(mtx);
+    other.field = nullptr; // Transferam proprietatea asupra resursei
+    std::cout << "Mutex lock acquired in Reservation move constructor.\n";
     std::cout << "Move constructor a fost apelat." << std::endl;
 }
 
-
 double Reservation::calculateTotalCost() const {
-	return field->getPricePerHour() * hours; // calculam costul total
+    std::lock_guard<std::mutex> lock(mtx);
+    std::cout << "Mutex lock acquired in calculateTotalCost().\n";
+    return field->getPricePerHour() * hours; // Calculam costul total
 }
 
