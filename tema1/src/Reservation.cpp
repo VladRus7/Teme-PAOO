@@ -33,6 +33,6 @@ Reservation::Reservation(Reservation&& other) noexcept
 double Reservation::calculateTotalCost() const {
     std::lock_guard<std::mutex> lock(mtx);
     std::cout << "Mutex lock acquired in calculateTotalCost().\n";
-    return field->getPricePerHour() * hours; // Calculam costul total
+    return field->getPricePerHour() * hours; // Calculam costul total  
 }
 

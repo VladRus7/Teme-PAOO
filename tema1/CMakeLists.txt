@@ -13,5 +13,5 @@ else()
     endif()    
 endif()   
 
-add_executable(GestionareTerenuri src/main.cpp src/Field.cpp  src/Reservation.cpp)
+add_executable(GestionareTerenuri src/main.cpp src/Field.cpp  src/Reservation.cpp src/ReservationBase.cpp)
 

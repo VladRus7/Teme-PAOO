@@ -8,7 +8,7 @@ ReservationBase::ReservationBase(const std::string& name, const std::string& typ
 }
 
 ReservationBase::~ReservationBase() {
-    std::cout << "Destructorul ReservationBase a fost apelat." << std::endl;
+    std::cout << "Destructorul ReservationBase a fost  apelat." << std::endl;
 }
 
 std::string ReservationBase::getName() const {

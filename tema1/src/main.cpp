@@ -7,7 +7,7 @@
 
 int main(){
 	
-  // Cream smart pointers pentru Field
+  // Cream smart pointers pentru Field 
   	std::cout << "Smart pointer created for Field 1.\n";
     auto field1 = std::make_shared<Field>("Teren 1", "fotbal", 50.0);
 

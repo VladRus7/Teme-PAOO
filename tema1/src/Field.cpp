@@ -1,5 +1,5 @@
 #include "Field.hpp"
-//initialization constructor
+//initialization constructor 
 Field::Field(const std::string& name, const std::string& type, double pricePerHour) : name(name), type(type), pricePerHour(pricePerHour){}
 
 std::string Field::getName() const {

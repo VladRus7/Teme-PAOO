@@ -3,6 +3,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/GestionareTerenuri.dir/src/Field.cpp.o.d"
   "CMakeFiles/GestionareTerenuri.dir/src/Reservation.cpp.o"
   "CMakeFiles/GestionareTerenuri.dir/src/Reservation.cpp.o.d"
+  "CMakeFiles/GestionareTerenuri.dir/src/ReservationBase.cpp.o"
+  "CMakeFiles/GestionareTerenuri.dir/src/ReservationBase.cpp.o.d"
   "CMakeFiles/GestionareTerenuri.dir/src/main.cpp.o"
   "CMakeFiles/GestionareTerenuri.dir/src/main.cpp.o.d"
   "GestionareTerenuri"

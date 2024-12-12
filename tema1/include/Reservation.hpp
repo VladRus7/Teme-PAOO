@@ -1,22 +1,23 @@
 #pragma once
 #include "ReservationBase.hpp"
 #include "Field.hpp"
+#include <memory>
+
 
 class Reservation : public ReservationBase {
 private:
-	Field* field; // pointer la obiectul de tip Field(terenul rezervat)
-	int hours; // nr de ore pentru care se face rezervarea
-	
+    std::shared_ptr<Field> field; // smart pointer pentru gestionarea memoriei
+	std::unique_ptr<std::string> description; // Descriere unica pt rezervare
+    int hours; // nr de ore pentru care se face rezervarea
 
 public:
-	Reservation(const Field& field, int hours); // constructor pentru rezervare
-	~Reservation();//deconstructor pentru eliberarea memoriei	
-	double calculateTotalCost() const; // calculeaza costul total al unei rezervari
+    Reservation(std::shared_ptr<Field> field, int hours, std::unique_ptr<std::string> description);
+    ~Reservation();
 
-	Reservation(const Reservation& other) ; // copy constructor
-	Reservation(Reservation&&) noexcept; // move constructor
-	Reservation& operator=(const Reservation& other) = delete; // oprim call-ul
-	Reservation& operator=(Reservation&& other) = delete;
+    double calculateTotalCost() const;
 
-	
+    Reservation(const Reservation& other); // copy constructor
+    Reservation(Reservation&&) noexcept;   // move constructor
+    Reservation& operator=(const Reservation& other) = delete; // assignment interzis
+    Reservation& operator=(Reservation&& other) = delete;
 };

@@ -177,6 +177,30 @@ src/Reservation.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/GestionareTerenuri.dir/build.make CMakeFiles/GestionareTerenuri.dir/src/Reservation.cpp.s
 .PHONY : src/Reservation.cpp.s
 
+src/ReservationBase.o: src/ReservationBase.cpp.o
+.PHONY : src/ReservationBase.o
+
+# target to build an object file
+src/ReservationBase.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GestionareTerenuri.dir/build.make CMakeFiles/GestionareTerenuri.dir/src/ReservationBase.cpp.o
+.PHONY : src/ReservationBase.cpp.o
+
+src/ReservationBase.i: src/ReservationBase.cpp.i
+.PHONY : src/ReservationBase.i
+
+# target to preprocess a source file
+src/ReservationBase.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GestionareTerenuri.dir/build.make CMakeFiles/GestionareTerenuri.dir/src/ReservationBase.cpp.i
+.PHONY : src/ReservationBase.cpp.i
+
+src/ReservationBase.s: src/ReservationBase.cpp.s
+.PHONY : src/ReservationBase.s
+
+# target to generate assembly for a file
+src/ReservationBase.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GestionareTerenuri.dir/build.make CMakeFiles/GestionareTerenuri.dir/src/ReservationBase.cpp.s
+.PHONY : src/ReservationBase.cpp.s
+
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
 
@@ -216,6 +240,9 @@ help:
 	@echo "... src/Reservation.o"
 	@echo "... src/Reservation.i"
 	@echo "... src/Reservation.s"
+	@echo "... src/ReservationBase.o"
+	@echo "... src/ReservationBase.i"
+	@echo "... src/ReservationBase.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
